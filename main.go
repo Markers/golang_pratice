@@ -59,9 +59,13 @@ func main() {
 	// http.Redirect(w, r, "/static/"+"swagger/", http.StatusSeeOther)
 	// })
 
-	opts := middleware.SwaggerUIOpts{SpecURL: "/swagger.yaml"}
+	opts := middleware.SwaggerUIOpts{SpecURL: "/docs/swagger.yaml"}
+
 	sh := middleware.SwaggerUI(opts, nil)
 	mux.Handle("/docs", sh)
+
+	var dir string
+	mux.PathPrefix("/docs/").Handler(http.FileServer(http.Dir(dir)))
 
 	http.ListenAndServe(":8080", mux)
 

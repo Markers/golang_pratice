@@ -1,0 +1,9 @@
+basePath: /users
+host: localhost:8000
+info:
+  contact: {}
+  description: 처음써보는 스웨고~
+  title: swaggo first Test
+  version: 0.0.1?
+paths: {}
+swagger: "2.0"

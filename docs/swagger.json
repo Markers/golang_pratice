@@ -1,0 +1,12 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "처음써보는 스웨고~",
+        "title": "swaggo first Test",
+        "contact": {},
+        "version": "0.0.1?"
+    },
+    "host": "localhost:8000",
+    "basePath": "/users",
+    "paths": {}
+}

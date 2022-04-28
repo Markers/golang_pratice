@@ -7,16 +7,22 @@ import (
 	"github.com/go-openapi/runtime/middleware"
 	"github.com/gorilla/mux"
 
-	// http-swagger middleware
-	// httpSwagger ""
 	_ "golang_pratice/docs"
 )
 
 var users = map[string]*User{}
 
+// User godoc
+// User model info
+// @description  User information
+// @description  with Nickname and Email
+// @id test id
+// @Success 200 {object} response.
 type User struct {
+	//nickname
 	Nickname string `json:"nickname"`
-	Email    string `json:"email"`
+	//Email
+	Email string `json:"email"`
 }
 
 func jsonContentTypeMiddleware(next http.Handler) http.Handler {
@@ -26,12 +32,9 @@ func jsonContentTypeMiddleware(next http.Handler) http.Handler {
 	})
 }
 
-// @title swaggo first Test
-// @version 0.0.1?
-// @description 처음써보는 스웨고~
-// @host localhost:8000
-// @BasePath /users
-
+// main godoc
+// @description  swagger 테스트 중입니다.
+// @produce      json
 func main() {
 	// mux := http.NewServeMux()
 

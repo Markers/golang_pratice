@@ -1,9 +1,48 @@
-basePath: /users
-host: localhost:8000
-info:
-  contact: {}
-  description: 처음써보는 스웨고~
-  title: swaggo first Test
-  version: 0.0.1?
-paths: {}
 swagger: "2.0"
+info:
+  description: go swagger 테스트. yaml 파일 직접 수기 작성
+  title: swaggo
+  version: 1.0.0
+produces:
+  - application/json
+consumes:
+  - application/json
+schemes:
+  - http
+paths:
+  /users:
+    post:
+      description: "User data input"
+      consumes:
+      - "application/json"
+      responses:
+        "200":
+          description: "Success"
+      parameters:
+      - in : "body"
+        name : "User"
+        required: true
+        schema:
+          $ref: "#/definitions/User"
+    get:
+      description: "return User(nickname, email)"
+      responses:
+        "200":
+          description: "success"
+          schema:
+            type: "object"
+            items:
+              $ref: "#/definitions/User"
+definitions:
+  User:
+    type: "object"
+    required:
+      - "nickname" 
+      - "email"
+    properties:
+      nickname:
+        type: "string"
+        example: "john"
+      email:
+        type: "string"
+        example: "niceguy@gmail.com"
